@@ -305,7 +305,8 @@
                 handleUpdate(row) {
                     this.dialogFormVisible4Edit=true;
                     //回显数据
-                    axios.get("/checkitem/findById.do?id="+row.id,).then((res)=>{
+                    var url = "/checkitem/findById/"+row.id;
+                    axios.get(url).then((res)=>{
                         if(res.data.flag){
                             //查询成功回显数据
                             this.formData=res.data.data;

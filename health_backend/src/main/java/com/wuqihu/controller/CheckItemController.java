@@ -7,6 +7,7 @@ import com.wuqihu.entity.QueryPageBean;
 import com.wuqihu.entity.Result;
 import com.wuqihu.pojo.CheckItem;
 import com.wuqihu.service.CheckItemService;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -60,8 +61,8 @@ public class CheckItemController {
         return new Result(true,MessageConstant.EDIT_CHECKGROUP_SUCCESS);
     }
 
-    @RequestMapping("/findById")
-    public Result findById(Integer id){
+    @RequestMapping("/findById/{id}")
+    public Result findById(@PathVariable("id") Integer id){
         try {
             CheckItem checkItem = checkItemService.findById(id);
             return new Result(true,MessageConstant.QUERY_CHECKGROUP_SUCCESS,checkItem);
